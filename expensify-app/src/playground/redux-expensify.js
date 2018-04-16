@@ -12,7 +12,7 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
                 action.expense
             ];
         case 'REMOVE_EXPENSE':
-            return state.filter(( {id} ) => id !== action.expenses.id);
+            return state.filter(( {id} ) => id !== action.id);
         default:
             return state;
     }
@@ -48,9 +48,7 @@ const addExpense = ({description = '', note = '', amount = 0, date = 0} = {}) =>
 const removeExpense = ( {id} = {} ) => {
     return {
     type: 'REMOVE_EXPENSE',
-    expenses: {
-        id
-    }
+    id
 }};
 
 //Store
