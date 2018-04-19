@@ -11,19 +11,10 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
+// temp test data
 store.dispatch(addExpense({ description: 'Gas Bill', amount: 10000, createdAt: 1000 }));
 store.dispatch(addExpense({ description: 'Water Bill', amount: 5000, createdAt: 2000 }));
-store.dispatch(setTextFilter('Water'));
-
-setTimeout(() => {
-    store.dispatch(setTextFilter('Bill'));
-}, 3000);
-
-const state = store.getState();
-
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-
-console.log(visibleExpenses);
+store.dispatch(addExpense({ description: 'Rent', amount: 200000, createdAt: 100 }));
 
 const jsx = (
     <Provider store={store}>
